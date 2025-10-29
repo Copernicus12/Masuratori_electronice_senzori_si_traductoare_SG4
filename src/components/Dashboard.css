@@ -1,0 +1,165 @@
+:root{
+  --bg: #f7f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0ea5a4;
+  --accent-2: #3b82f6;
+  --shadow: 0 6px 18px rgba(17,24,39,0.06);
+  --radius: 10px;
+}
+
+.dashboard{
+  min-height:100vh;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  padding:28px 40px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:#111827;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.dashboard-card{
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dash-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+.dash-header h2{font-size:20px;margin:0}
+.dash-header .room{
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding:10px 16px;
+  border-radius:12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight:700;
+}
+
+.dash-grid{
+  display:grid;
+  grid-template-columns: 1.15fr 420px;
+  gap:28px;
+  align-items:start;
+}
+
+.left-col{background:transparent}
+.group-row{display:flex;gap:18px;margin-bottom:22px}
+.group{flex:1;text-align:left}
+.group h4{color:var(--accent-2);margin:0 0 8px 0;font-size:14px}
+
+.metrics-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.metric h5{margin:0 0 8px 0;color:var(--accent);font-size:13px}
+.metric.w-full{grid-column:1/ -1}
+
+.dash-btn{
+  width:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:48px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius:16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-weight:600;
+  color:#111827;
+  cursor:pointer;
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.dash-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 24px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.35);
+}
+.dash-btn .btn-sub{
+  font-size:14px;
+  color:#111827;
+}
+
+.right-panel{display:flex;justify-content:flex-end}
+.values-card{
+  width:420px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius:16px;
+  padding:20px 22px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.values-card h4{margin:0 0 16px 0;font-size:13px;color:var(--accent-2);font-weight:700}
+
+.value-cards-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.value-item-card{
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius:12px;
+  padding:12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  transition:all 0.2s ease;
+}
+
+.value-item-card:hover{
+  transform:translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.value-label{
+  font-size:11px;
+  color:var(--accent-2);
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+.value-number{
+  font-size:20px;
+  font-weight:800;
+  color:#111827;
+}
+
+.values-table{width:100%;border-collapse:collapse;text-align:center}
+.values-table th{font-size:12px;color:var(--muted);padding:6px}
+.values-table td{font-weight:700;padding:10px 6px}
+.value-row.small{margin-top:18px}
+
+@media (max-width:1100px){
+  .dash-grid{grid-template-columns:1fr;}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .values-card{width:100%}
+}
+
+@media (max-width:640px){
+  .metrics-grid{grid-template-columns:repeat(1,1fr)}
+  .group-row{flex-direction:column}
+}
